@@ -1,0 +1,26 @@
+
+<h2>Post Detail</h2>
+<a [routerLink]="['/comment-create']" >Create new Comment</a>
+
+<div *ngIf="ipost">
+  <h4>
+    {{ipost.title}}
+  </h4>
+  <p>
+    {{ipost.body}}
+  </p>
+</div>
+
+<div *ngIf="comments">
+<!--  <h5>Comments:</h5>-->
+  <tr *ngFor="let comment of comments">
+    <td><a [routerLink]="['/comment', comment.id,'edit-delete']" >Comment: </a></td>
+    <td>{{comment['body']}}</td>
+  </tr>
+</div>
+
+<a [routerLink]="['/posts']" >Back to Post list</a>
+<ng-template #nothing>
+  <p>Nothing to show</p>
+</ng-template>
+

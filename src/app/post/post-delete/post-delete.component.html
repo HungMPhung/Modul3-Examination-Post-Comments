@@ -1,0 +1,19 @@
+
+<h2 >Do you want to remove this Title ?</h2>
+
+<div>
+  <button (click)="deletePost()">Delete</button>
+  <table *ngIf="ipost">
+    <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <td>{{ipost.title}}</td>
+    <td>{{ipost.body}}</td>
+    </tbody>
+  </table>
+</div>
+

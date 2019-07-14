@@ -1,0 +1,29 @@
+<h2 class="text-center title">Post Lists</h2>
+
+<div>
+  This Posts-List have {{postList.length}} post!
+  <a [routerLink]="['/post-add']"> Add a new Post</a>
+</div>
+<div>
+  <table class="table table-bordered table-striped col-md-10 offset-md-1">
+    <thead class="table table-dark">
+    <tr>
+      <th scope="col">Stt</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Option</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ipost of postList, index as i" >
+      <td>{{i+1}}</td>
+      <td><a [routerLink]="[ '/post/', ipost.id]">{{ipost.title}}</a></td>
+      <td>{{ipost.body}}</td>
+      <td>
+        <a [routerLink]="['/post', ipost.id,'edit']">Edit</a>|
+        <a [routerLink]="['/post', ipost.id,'delete']">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

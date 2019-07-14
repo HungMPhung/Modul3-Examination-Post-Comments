@@ -1,0 +1,39 @@
+<p>comment-edit-delete works!</p>
+<form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>
+      Name
+      <br>
+      <input type="text" formControlName="name">
+    </label>
+  </div>
+  <div *ngIf="commentForm.get('name').invalid && commentForm.get('name').touched" style="color: red">
+    Name is required not null!
+  </div>
+  <div>
+    <label>
+      Email
+      <br>
+      <input type="text" formControlName="email">
+    </label>
+  </div>
+  <div *ngIf="commentForm.get('email').invalid && commentForm.get('email').touched" style="color: olivedrab">
+    Email is required not null!
+  </div>
+  <div>
+    <label>
+      Comment
+      <br>
+      <textarea formControlName="body" cols="30" rows="10"></textarea>
+    </label>
+  </div>
+  <div *ngIf="commentForm.get('body').invalid && commentForm.get('body').touched" style="color: red">
+    Comment is required not null!
+  </div>
+  <button type="submit">Edit</button>
+</form>
+
+<div>
+  <p>Do you want to delete this comment?</p>
+  <button (click)="deletePost()">Delete</button>
+</div>
